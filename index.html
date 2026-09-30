@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -11,125 +11,178 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config={
+      theme:{
+        extend:{
+          fontFamily:{sans:['DM Sans','sans-serif'],script:['Pacifico','cursive']},
+          colors:{navy:'#17364c',pink:'#f63f78',pinkSoft:'#ffdce8',blueSoft:'#8edeea',gold:'#ffb24f',lav:'#c98ae5'},
+          boxShadow:{soft:'0 18px 50px rgba(123,65,94,.12)',pink:'0 14px 35px rgba(246,63,120,.28)'}
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    .script-gradient{background:linear-gradient(90deg,#f63f78 0%,#ff9a3c 32%,#55cfe0 63%,#b46dd9 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero-fade{background:linear-gradient(90deg,#fffafc 0%,#fffafc 70%,rgba(255,250,252,.75) 88%,rgba(255,250,252,0) 100%)}
+    .wave-top{clip-path:polygon(0 35%,7% 20%,18% 28%,31% 18%,43% 32%,57% 23%,69% 36%,82% 22%,92% 30%,100% 16%,100% 100%,0 100%)}
+    .wave-bottom{clip-path:polygon(0 28%,8% 18%,19% 27%,31% 20%,43% 31%,56% 21%,69% 30%,82% 18%,92% 27%,100% 14%,100% 100%,0 100%)}
+    .logo-rainbow:before{content:"";position:absolute;width:78px;height:36px;left:42px;top:-7px;border-radius:80px 80px 0 0;border:4px solid #74d8ea;border-bottom:0;box-shadow:0 -6px 0 -2px #ffb24f,0 -12px 0 -4px #f78fb1}
+    .carousel-track{scrollbar-width:none}.carousel-track::-webkit-scrollbar{display:none}
+  </style>
 </head>
-<body>
-<header class="site-header">
-  <a class="approved-logo" href="#inicio" aria-label="Decorando Sonhos">
-    <span class="logo-rainbow"></span>
-    <span class="logo-balloons"><i></i><i></i><i></i></span>
-    <strong>DECORANDO</strong>
-    <em>Sonhos</em>
-    <small>ONDE CADA FESTA SE TORNA MÁGICA!</small>
-  </a>
-  <button class="menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">☰</button>
-  <nav id="main-nav">
-    <a class="active" href="#inicio">Início</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#trabalhos">Nossos Trabalhos</a>
-    <a href="#servicos">Serviços</a>
-    <a href="#depoimentos">Depoimentos</a>
-    <a href="#contato">Contato</a>
-  </nav>
-  <a class="header-whatsapp wa-link" href="#"><span class="icon icon-wa"></span>Fale Conosco</a>
-</header>
+<body class="font-sans text-navy bg-white overflow-x-hidden">
+  <header class="sticky top-0 z-50 px-4 md:px-8 lg:px-12 pt-3">
+    <div class="max-w-[1520px] mx-auto bg-white/95 backdrop-blur-xl rounded-b-[38px] lg:rounded-[38px] shadow-soft px-5 lg:px-8 h-[92px] flex items-center gap-6">
+      <a href="#inicio" class="relative shrink-0 w-[190px] h-[76px] logo-rainbow" aria-label="Decorando Sonhos">
+        <span class="absolute left-3 top-5 text-[21px] font-extrabold tracking-[-1px]">DECORANDO</span>
+        <span class="absolute left-3 top-9 font-script text-[36px] leading-none script-gradient">Sonhos</span>
+        <span class="absolute left-4 bottom-1 text-[6px] font-bold tracking-[1.2px]">ONDE CADA FESTA SE TORNA MÁGICA!</span>
+        <span class="absolute right-4 top-2 flex gap-1"><i class="w-5 h-6 bg-pink rounded-full block"></i><i class="w-4 h-5 bg-blueSoft rounded-full block mt-2"></i><i class="w-4 h-5 bg-gold rounded-full block mt-4"></i></span>
+      </a>
 
-<main>
-  <section class="approved-hero" id="inicio">
-    <div class="hero-copy">
-      <p class="hero-kicker"><span>♡</span> DECORAÇÕES QUE TRANSFORMAM</p>
-      <h1>Fazemos parte dos<br>momentos mais<br><span>especiais da sua vida!</span></h1>
-      <p class="hero-text">Decorações personalizadas para aniversários,<br>fazendo cada festa se tornar mágica!</p>
-      <div class="hero-actions">
-        <a class="hero-wa wa-link" href="#"><span class="icon icon-wa"></span>Falar no WhatsApp <b>→</b></a>
-        <a class="hero-insta insta-link" href="#"><span class="icon icon-insta"></span>Ver Instagram</a>
+      <button id="menuBtn" class="lg:hidden ml-auto w-11 h-11 rounded-full bg-pinkSoft grid place-items-center" aria-label="Abrir menu" aria-expanded="false"><i data-lucide="menu" class="w-6 h-6"></i></button>
+
+      <nav id="mainNav" class="hidden lg:flex items-center gap-7 text-[14px] font-medium ml-auto">
+        <a href="#inicio" class="nav-link text-pink border-b-2 border-pink pb-2">Início</a>
+        <a href="#sobre" class="nav-link pb-2 border-b-2 border-transparent">Sobre</a>
+        <a href="#trabalhos" class="nav-link pb-2 border-b-2 border-transparent">Nossos Trabalhos</a>
+        <a href="#servicos" class="nav-link pb-2 border-b-2 border-transparent">Serviços</a>
+        <a href="#depoimentos" class="nav-link pb-2 border-b-2 border-transparent">Depoimentos</a>
+        <a href="#contato" class="nav-link pb-2 border-b-2 border-transparent">Contato</a>
+      </nav>
+
+      <a class="wa-link hidden lg:inline-flex items-center gap-3 px-7 py-4 rounded-full bg-pink text-white font-bold shadow-pink hover:-translate-y-0.5 transition" href="#">
+        <i data-lucide="message-circle" class="w-5 h-5"></i> Fale Conosco
+      </a>
+    </div>
+
+    <div id="mobileNav" class="hidden lg:hidden max-w-[1520px] mx-auto bg-white rounded-3xl shadow-soft p-5 mt-2">
+      <nav class="grid gap-3 text-sm font-semibold">
+        <a href="#inicio">Início</a><a href="#sobre">Sobre</a><a href="#trabalhos">Nossos Trabalhos</a><a href="#servicos">Serviços</a><a href="#depoimentos">Depoimentos</a><a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="inicio" class="relative min-h-[690px] lg:min-h-[740px] -mt-3 pt-3 overflow-hidden bg-[#fffafb]">
+      <div class="absolute inset-y-0 right-0 w-full lg:w-[57%]">
+        <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=1600&q=90" alt="Decoração de festa com balões em tons pastel" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-r from-[#fffafb] via-[#fffafb]/25 to-transparent lg:hidden"></div>
       </div>
-      <div class="hero-benefits">
-        <div><span>♡</span><b>Decorações<br>Personalizadas</b></div>
-        <div><span>★</span><b>Para todas<br>as idades</b></div>
-        <div><span>♙</span><b>Momentos<br>Inesquecíveis</b></div>
+
+      <div class="relative z-10 max-w-[1520px] mx-auto grid lg:grid-cols-[52%_48%] min-h-[690px] lg:min-h-[740px]">
+        <div class="hero-fade px-6 md:px-12 lg:px-16 pt-24 lg:pt-28 pb-28">
+          <div class="max-w-[650px]">
+            <p class="flex items-center gap-3 text-[12px] md:text-[14px] tracking-[5px] font-semibold mb-6"><i data-lucide="heart" class="w-6 h-6 text-pink"></i>DECORAÇÕES QUE TRANSFORMAM</p>
+            <h1 class="text-[43px] md:text-[58px] lg:text-[64px] leading-[1.02] tracking-[-2.7px] font-extrabold mb-6">
+              Fazemos parte dos<br>momentos mais<br>
+              <span class="font-script font-normal text-[47px] md:text-[64px] lg:text-[69px] script-gradient inline-flex items-center">especiais da sua vida.<i data-lucide="heart" class="w-9 h-9 ml-3 text-pink"></i></span>
+            </h1>
+            <p class="text-[17px] md:text-[20px] leading-8 max-w-[610px] mb-8">Decorações personalizadas para aniversários,<br class="hidden md:block"> fazendo cada festa se tornar mágica!</p>
+
+            <div class="flex flex-col sm:flex-row gap-4 mb-10">
+              <a class="wa-link inline-flex items-center justify-center gap-3 bg-pink text-white rounded-full px-8 py-5 font-bold text-[17px] shadow-pink" href="#"><i data-lucide="message-circle" class="w-6 h-6"></i>Falar no WhatsApp <i data-lucide="arrow-right" class="w-5 h-5"></i></a>
+              <a class="insta-link inline-flex items-center justify-center gap-3 bg-white border-2 border-pink text-pink rounded-full px-8 py-5 font-bold text-[17px]" href="#"><i data-lucide="instagram" class="w-6 h-6"></i>Ver Instagram</a>
+            </div>
+
+            <div class="grid grid-cols-3 gap-4 max-w-[620px]">
+              <div class="flex items-center gap-3"><i data-lucide="heart" class="w-8 h-8 text-pink shrink-0"></i><b class="text-[12px] md:text-[14px] leading-4">Decorações<br>Personalizadas</b></div>
+              <div class="flex items-center gap-3"><i data-lucide="star" class="w-8 h-8 text-gold shrink-0"></i><b class="text-[12px] md:text-[14px] leading-4">Para todas<br>as idades</b></div>
+              <div class="flex items-center gap-3"><i data-lucide="party-popper" class="w-8 h-8 text-pink shrink-0"></i><b class="text-[12px] md:text-[14px] leading-4">Momentos<br>Inesquecíveis</b></div>
+            </div>
+          </div>
+        </div>
+        <div></div>
       </div>
-    </div>
 
-    <div class="party-scene" aria-label="Cenário de festa em tons pastel">
-      <div class="scene-lights"></div>
-      <div class="balloon-cluster">
-        <i class="b1"></i><i class="b2"></i><i class="b3"></i><i class="b4"></i><i class="b5"></i>
-        <i class="b6"></i><i class="b7"></i><i class="b8"></i><i class="b9"></i><i class="b10"></i>
+      <svg class="absolute bottom-0 left-0 w-full h-[120px] z-20" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,70 C180,20 290,105 470,55 C640,10 760,105 930,58 C1110,12 1240,95 1440,40 L1440,140 L0,140 Z" fill="#8edeea"/>
+        <path d="M0,90 C180,45 320,120 500,76 C670,32 790,118 975,78 C1150,40 1280,112 1440,70 L1440,140 L0,140 Z" fill="#ffdce8"/>
+        <path d="M0,112 C180,72 330,133 520,98 C700,62 840,126 1010,100 C1190,72 1315,125 1440,98 L1440,140 L0,140 Z" fill="#fff"/>
+      </svg>
+    </section>
+
+    <section id="trabalhos" class="relative px-5 md:px-10 lg:px-14 pt-14 pb-20 bg-white">
+      <div class="max-w-[1380px] mx-auto">
+        <div class="relative text-center mb-9">
+          <h2 class="text-[34px] md:text-[44px] font-extrabold flex items-center justify-center gap-3"><span class="text-gold">✦</span>Nossos Trabalhos<span class="text-pink">✦</span></h2>
+          <p class="text-[15px] md:text-[18px] mt-1">Cada detalhe pensado para tornar sua festa única!</p>
+          <a class="insta-link mt-5 lg:mt-0 lg:absolute lg:right-0 lg:top-3 inline-flex items-center gap-2 bg-pink text-white rounded-full px-6 py-3 font-semibold shadow-pink" href="#">Ver mais fotos <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+        </div>
+
+        <div class="relative">
+          <button id="prevWork" class="hidden md:grid absolute -left-6 top-[42%] -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white shadow-soft place-items-center" aria-label="Anterior"><i data-lucide="chevron-left" class="w-6 h-6"></i></button>
+          <div id="workTrack" class="carousel-track flex md:grid md:grid-cols-4 gap-5 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2">
+            <article class="min-w-[82%] sm:min-w-[55%] md:min-w-0 snap-start">
+              <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=800&q=85" alt="Festa infantil em tons pastéis" class="w-full h-[300px] object-cover rounded-[20px] shadow-soft">
+              <h3 class="mt-4 flex items-center gap-2 font-bold"><span class="w-8 h-8 rounded-full bg-pink grid place-items-center text-white"><i data-lucide="smile" class="w-4 h-4"></i></span>Festa Infantil</h3>
+            </article>
+            <article class="min-w-[82%] sm:min-w-[55%] md:min-w-0 snap-start">
+              <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=800&q=85" alt="Tema espacial para aniversário" class="w-full h-[300px] object-cover rounded-[20px] shadow-soft">
+              <h3 class="mt-4 flex items-center gap-2 font-bold"><span class="w-8 h-8 rounded-full bg-pink grid place-items-center text-white"><i data-lucide="rocket" class="w-4 h-4"></i></span>Aniversário Menino</h3>
+            </article>
+            <article class="min-w-[82%] sm:min-w-[55%] md:min-w-0 snap-start">
+              <img src="https://images.unsplash.com/photo-1513159446162-54eb8bdaa79b?auto=format&fit=crop&w=800&q=85" alt="Festa infantil rosa" class="w-full h-[300px] object-cover rounded-[20px] shadow-soft">
+              <h3 class="mt-4 flex items-center gap-2 font-bold"><span class="w-8 h-8 rounded-full bg-pink grid place-items-center text-white"><i data-lucide="bow-arrow" class="w-4 h-4"></i></span>Aniversário Menina</h3>
+            </article>
+            <article class="min-w-[82%] sm:min-w-[55%] md:min-w-0 snap-start">
+              <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=800&q=85" alt="Festa adulta elegante" class="w-full h-[300px] object-cover rounded-[20px] shadow-soft">
+              <h3 class="mt-4 flex items-center gap-2 font-bold"><span class="w-8 h-8 rounded-full bg-gold grid place-items-center text-white"><i data-lucide="star" class="w-4 h-4"></i></span>Festa Adulto</h3>
+            </article>
+          </div>
+          <button id="nextWork" class="hidden md:grid absolute -right-6 top-[42%] -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white shadow-soft place-items-center" aria-label="Próximo"><i data-lucide="chevron-right" class="w-6 h-6"></i></button>
+        </div>
       </div>
-      <div class="rainbow-arch"><div class="arch-inner"><span>♡</span></div></div>
-      <div class="flower-vase vase-one"><i>✿</i><i>✿</i><i>✿</i><i>✿</i></div>
-      <div class="flower-vase vase-two"><i>✿</i><i>✿</i><i>✿</i></div>
-      <div class="dessert-table t1"><span>● ● ●</span></div>
-      <div class="dessert-table t2"><span>● ●</span></div>
-      <div class="cake-stack"><div></div><div></div><div></div><b>♡</b></div>
-      <div class="plinth p-a"></div><div class="plinth p-b"></div><div class="plinth p-c"></div>
-      <div class="teddy"><span>●</span><i></i><b>⌣</b></div>
-    </div>
-    <div class="hero-wave wave-blue"></div>
-    <div class="hero-wave wave-pink"></div>
-  </section>
+    </section>
 
-  <section class="work-section" id="trabalhos">
-    <div class="work-heading">
-      <div>
-        <h2><span>✦</span> Nossos Trabalhos <span>✦</span></h2>
-        <p>Cada detalhe pensado para tornar sua festa única!</p>
+    <section id="contato" class="relative overflow-hidden px-5 md:px-10 lg:px-14 py-24 bg-gradient-to-r from-[#ffe2ec] via-[#fff7f2] to-[#e8f8fb]">
+      <svg class="absolute top-0 left-0 w-full h-[95px]" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,55 C180,15 320,85 490,45 C680,2 820,85 1010,48 C1190,12 1320,75 1440,42 L1440,0 L0,0 Z" fill="#8edeea" opacity=".75"/>
+        <path d="M0,68 C180,28 330,95 520,57 C710,19 845,91 1020,59 C1200,28 1315,85 1440,58 L1440,0 L0,0 Z" fill="#ffdce8"/>
+      </svg>
+
+      <div class="absolute left-8 top-28 text-pink/40 text-5xl">♡</div>
+      <div class="absolute right-10 top-32 text-gold/60 text-4xl">✦</div>
+      <div class="absolute left-1/3 bottom-10 text-pink/30 text-4xl">♡</div>
+
+      <div class="relative max-w-[1380px] mx-auto grid lg:grid-cols-[.9fr_1.1fr] gap-12 items-center">
+        <div>
+          <h2 class="font-script text-[45px] md:text-[58px] leading-[1.05] text-pink mb-6">Vamos transformar<br><span class="script-gradient">seu sonho em realidade?</span></h2>
+          <p class="text-[18px] md:text-[21px] leading-8">Fale conosco e solicite um orçamento<br>sem compromisso!</p>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-5">
+          <a class="wa-link bg-white/90 rounded-[28px] min-h-[180px] shadow-soft flex flex-col items-center justify-center gap-4 text-center p-6" href="#">
+            <span class="w-20 h-20 rounded-[22px] bg-[#25c76f] grid place-items-center text-white"><i data-lucide="message-circle" class="w-11 h-11"></i></span>
+            <b>Conversar no<br>WhatsApp</b>
+          </a>
+          <a class="insta-link bg-white/90 rounded-[28px] min-h-[180px] shadow-soft flex flex-col items-center justify-center gap-4 text-center p-6" href="#">
+            <span class="w-20 h-20 rounded-[22px] bg-gradient-to-br from-[#7f51dd] via-[#e7439e] to-[#ff8c48] grid place-items-center text-white"><i data-lucide="instagram" class="w-11 h-11"></i></span>
+            <b>Acessar<br>Instagram</b>
+          </a>
+          <a href="#trabalhos" class="bg-white/90 rounded-[28px] min-h-[180px] shadow-soft flex flex-col items-center justify-center gap-4 text-center p-6">
+            <span class="w-20 h-20 rounded-[22px] bg-[#8459df] grid place-items-center text-white"><i data-lucide="image" class="w-11 h-11"></i></span>
+            <b>Ver mais<br>trabalhos</b>
+          </a>
+        </div>
       </div>
-      <a class="more-photos insta-link" href="#">Ver mais fotos <b>→</b></a>
-    </div>
+    </section>
 
-    <div class="approved-gallery">
-      <article>
-        <div class="work-photo photo-unicorn"><div class="mini-stage"><span>🦄</span></div></div>
-        <h3><span class="cat pink">●</span>Festa Infantil</h3>
-      </article>
-      <article>
-        <div class="work-photo photo-space"><div class="mini-stage"><span>🚀</span></div></div>
-        <h3><span class="cat rocket">♦</span>Aniversário Menino</h3>
-      </article>
-      <article>
-        <div class="work-photo photo-minnie"><div class="mini-stage"><span>🎀</span></div></div>
-        <h3><span class="cat bow">●</span>Aniversário Menina</h3>
-      </article>
-      <article>
-        <div class="work-photo photo-adult"><div class="mini-stage adult"><span>30</span></div></div>
-        <h3><span class="cat star">★</span>Festa Adulto</h3>
-      </article>
-    </div>
-  </section>
+    <section id="sobre" class="py-20 px-6 text-center"><p class="text-pink tracking-[4px] text-xs font-bold">SOBRE</p><h2 class="text-3xl md:text-4xl font-extrabold mt-3">Detalhes pensados com carinho</h2></section>
+    <section id="servicos" class="py-20 px-6 text-center bg-[#fff8fb]"><p class="text-pink tracking-[4px] text-xs font-bold">SERVIÇOS</p><h2 class="text-3xl md:text-4xl font-extrabold mt-3">Decoração personalizada para cada momento</h2></section>
+    <section id="depoimentos" class="py-20 px-6 text-center"><p class="text-pink tracking-[4px] text-xs font-bold">DEPOIMENTOS</p><h2 class="text-3xl md:text-4xl font-extrabold mt-3">Momentos que ficam na memória</h2></section>
+  </main>
 
-  <section class="approved-cta" id="contato">
-    <div class="cta-copy">
-      <h2>Vamos transformar<br><span>seu sonho em realidade?</span></h2>
-      <p>Fale conosco e solicite um orçamento<br>sem compromisso!</p>
-    </div>
-    <div class="cta-cards">
-      <a class="wa-link" href="#"><span class="cta-icon whatsapp"><span class="icon icon-wa"></span></span><b>Conversar no<br>WhatsApp</b></a>
-      <a class="insta-link" href="#"><span class="cta-icon instagram"><span class="icon icon-insta"></span></span><b>Acessar<br>Instagram</b></a>
-      <a href="#trabalhos"><span class="cta-icon gallery-icon">▧</span><b>Ver mais<br>trabalhos</b></a>
-    </div>
-    <div class="cta-decoration heart-a">♡</div><div class="cta-decoration star-a">✦</div>
-  </section>
+  <footer class="text-center py-10 bg-[#fff8fa] text-sm">© <span id="year"></span> Decorando Sonhos · Onde cada festa se torna mágica!</footer>
 
-  <section class="info-section" id="sobre">
-    <p class="section-eyebrow">SOBRE A DECORANDO SONHOS</p>
-    <h2>Detalhes pensados com carinho</h2>
-    <p>Transformamos ideias em cenários personalizados para aniversários e comemorações especiais.</p>
-  </section>
-  <section class="info-section soft" id="servicos">
-    <p class="section-eyebrow">SERVIÇOS</p><h2>Decoração personalizada para cada momento</h2>
-  </section>
-  <section class="info-section" id="depoimentos">
-    <p class="section-eyebrow">DEPOIMENTOS</p><h2>Momentos que ficam na memória</h2>
-  </section>
-</main>
+  <div class="lg:hidden fixed left-3 right-3 bottom-3 z-50 grid grid-cols-2 bg-white rounded-2xl p-2 shadow-soft">
+    <a href="#contato" class="min-h-12 rounded-xl bg-pinkSoft text-pink font-bold grid place-items-center">♡ Orçamento</a>
+    <a class="wa-link min-h-12 rounded-xl bg-[#25c76f] text-white font-bold flex items-center justify-center gap-2" href="#"><i data-lucide="message-circle" class="w-5 h-5"></i>WhatsApp</a>
+  </div>
 
-<footer>© <span id="year"></span> Decorando Sonhos · Onde cada festa se torna mágica!</footer>
-<div class="mobile-cta">
-  <a href="#contato">♡ Orçamento</a>
-  <a class="wa-link" href="#"><span class="icon icon-wa"></span>WhatsApp</a>
-</div>
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
