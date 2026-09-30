@@ -1,7 +1,7 @@
-// Preencha os dois dados abaixo antes de publicar.
+// Contatos oficiais da Decorando Sonhos.
 const CONFIG = {
-  whatsapp: "55SEUNUMERO",
-  instagram: "SEUUSUARIO"
+  whatsapp: "5569999999999",
+  instagram: "decorandosonhos_pvh"
 };
 
 document.querySelectorAll(".wa-link").forEach(a => {
