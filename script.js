@@ -12,6 +12,41 @@ document.querySelectorAll(".insta-link").forEach(a => {
   a.href = `https://instagram.com/${CONFIG.instagram}`;
   a.target = "_blank"; a.rel = "noopener";
 });
-document.querySelector(".menu").addEventListener("click",()=>document.querySelector("nav").classList.toggle("open"));
-document.querySelectorAll("nav a").forEach(a=>a.addEventListener("click",()=>document.querySelector("nav").classList.remove("open")));
-document.getElementById("year").textContent=new Date().getFullYear();
+
+const menu = document.querySelector(".menu");
+const nav = document.querySelector("nav");
+menu.addEventListener("click", () => {
+  const open = nav.classList.toggle("open");
+  menu.setAttribute("aria-expanded", String(open));
+});
+document.querySelectorAll("nav a").forEach(a => a.addEventListener("click", () => {
+  nav.classList.remove("open");
+  menu.setAttribute("aria-expanded", "false");
+}));
+
+const sections = [...document.querySelectorAll("main section[id]")];
+const navLinks = [...document.querySelectorAll("nav a")];
+const updateNav = () => {
+  let current = "inicio";
+  sections.forEach(section => {
+    if (window.scrollY >= section.offsetTop - 180) current = section.id;
+  });
+  navLinks.forEach(link => link.classList.toggle("active", link.getAttribute("href") === "#" + current));
+  document.querySelector(".topbar").classList.toggle("scrolled", window.scrollY > 20);
+};
+window.addEventListener("scroll", updateNav, {passive:true});
+updateNav();
+
+const revealTargets = document.querySelectorAll(".about,.portfolio,.process,.services,.contact,.instagram-strip");
+revealTargets.forEach(el => el.classList.add("reveal"));
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, {threshold: .12});
+revealTargets.forEach(el => observer.observe(el));
+
+document.getElementById("year").textContent = new Date().getFullYear();
