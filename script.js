@@ -37,7 +37,7 @@ const updateNav = () => {
 window.addEventListener("scroll", updateNav, {passive:true});
 updateNav();
 
-const revealTargets = document.querySelectorAll(".about,.portfolio,.process,.services,.contact,.instagram-strip");
+const revealTargets = document.querySelectorAll(".about,.portfolio,.process,.services,.quote,.faq,.contact,.instagram-strip");
 revealTargets.forEach(el => el.classList.add("reveal"));
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
