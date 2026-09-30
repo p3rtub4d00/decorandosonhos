@@ -25,7 +25,7 @@
 <header class="topbar">
   <a class="brand" href="#inicio" aria-label="Decorando Sonhos"><span class="rainbow">⌒</span><b>DECORANDO</b><em>Sonhos</em><small>ONDE CADA FESTA SE TORNA MÁGICA!</small></a>
   <button class="menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">☰</button>
-  <nav id="main-nav"><a class="active" href="#inicio">Início</a><a href="#sobre">Sobre</a><a href="#trabalhos">Nossos Trabalhos</a><a href="#servicos">Serviços</a><a href="#contato">Contato</a></nav>
+  <nav id="main-nav"><a class="active" href="#inicio">Início</a><a href="#sobre">Sobre</a><a href="#trabalhos">Nossos Trabalhos</a><a href="#servicos">Serviços</a><a href="#orcamento">Orçamento</a><a href="#contato">Contato</a></nav>
   <a class="btn btn-primary header-cta wa-link" href="#"><span class="icon icon-wa" aria-hidden="true"></span>Fale Conosco</a>
 </header>
 
@@ -60,6 +60,47 @@
 <section class="process" id="como-funciona"><p class="eyebrow">COMO FUNCIONA</p><h2>Do seu sonho à festa pronta</h2><div class="process-grid"><div><span>01</span><b>Conte sua ideia</b><p>Chame no WhatsApp e conte a data, o tema e o estilo da comemoração.</p></div><div><span>02</span><b>Planejamos os detalhes</b><p>Montamos uma proposta personalizada para o seu momento especial.</p></div><div><span>03</span><b>A magia acontece</b><p>Cuidamos da decoração para você aproveitar e guardar boas lembranças.</p></div></div></section>
 
 <section class="services" id="servicos"><p class="eyebrow">O QUE FAZEMOS</p><h2>Uma festa com a sua cara</h2><div class="service-grid"><div><span class="service-icon">♡</span><b>Decoração personalizada</b><p>Projetos pensados para o tema e estilo da sua comemoração.</p></div><div><span class="service-icon">✦</span><b>Aniversários</b><p>Cenários para festas infantis, adolescentes e adultos.</p></div><div><span class="service-icon">☆</span><b>Detalhes especiais</b><p>Composições delicadas para fotos e lembranças inesquecíveis.</p></div></div></section>
+
+<section class="quote" id="orcamento">
+  <div class="quote-intro">
+    <p class="eyebrow">ORÇAMENTO RÁPIDO</p>
+    <h2>Conte um pouco sobre a sua festa</h2>
+    <p>Preencha os dados principais e o WhatsApp abrirá com a mensagem pronta para a Decorando Sonhos.</p>
+    <div class="quote-note"><span>♡</span><p>Sem cadastro e sem compromisso. Você revisa a mensagem antes de enviar.</p></div>
+  </div>
+  <form class="quote-form" id="quote-form">
+    <div class="field">
+      <label for="q-name">Seu nome</label>
+      <input id="q-name" name="name" type="text" autocomplete="name" placeholder="Como podemos te chamar?" required>
+    </div>
+    <div class="form-row">
+      <div class="field">
+        <label for="q-date">Data da festa</label>
+        <input id="q-date" name="date" type="date" required>
+      </div>
+      <div class="field">
+        <label for="q-type">Tipo de comemoração</label>
+        <select id="q-type" name="type" required>
+          <option value="">Selecione</option>
+          <option>Aniversário infantil</option>
+          <option>Aniversário adolescente</option>
+          <option>Aniversário adulto</option>
+          <option>Outra comemoração</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label for="q-theme">Tema ou ideia</label>
+      <input id="q-theme" name="theme" type="text" placeholder="Ex.: Jardim encantado, espaço, princesa...">
+    </div>
+    <div class="field">
+      <label for="q-details">Detalhes que deseja contar</label>
+      <textarea id="q-details" name="details" rows="4" placeholder="Quantidade de convidados, cores, local da festa ou qualquer detalhe importante."></textarea>
+    </div>
+    <button class="btn btn-primary quote-submit" type="submit"><span class="icon icon-wa" aria-hidden="true"></span>Solicitar orçamento pelo WhatsApp</button>
+    <p class="form-help" id="quote-status" aria-live="polite"></p>
+  </form>
+</section>
 
 <section class="cta-band"><div><span>✦</span><strong>Uma comemoração única começa com uma boa ideia.</strong><span>♡</span></div></section>
 
