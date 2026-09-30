@@ -1,0 +1,123 @@
+/* Reference composition. Photo sources are configured in script.js. */
+:root { --rose: #ff4080; --ink: #203b4c; }
+html { scroll-behavior: smooth; scroll-padding-top: 130px; }
+body { color: var(--ink); }
+header { position: absolute !important; width: 100%; padding: 0 8px !important; }
+header > div:first-child { height: 108px !important; max-width: 1440px; border-radius: 28px 28px 48px 48px !important; padding: 0 38px !important; gap: 20px !important; box-shadow: none !important; }
+header > div:first-child > a:first-child { width: 240px !important; height: 155px; margin: 0; border-radius: 0 0 50% 50% !important; align-self: flex-start; }
+header > div:first-child > a:first-child img { width: 218px !important; }
+#mainNav { gap: 23px !important; font-size: 13px !important; white-space: nowrap; }
+header .wa-link { padding: 15px 22px !important; font-size: 16px; background: linear-gradient(110deg,#fc3d80,#f95288); border: 1px solid #fb3373; box-shadow: none !important; white-space: nowrap; }
+#inicio { margin-top: 0 !important; padding-top: 0 !important; min-height: 790px !important; background: #fffafa; }
+#inicio > div:first-child { width: 58% !important; }
+#inicio > div:first-child img { object-position: 58% center; }
+#inicio > div:nth-child(2) { display: block !important; min-height: 790px !important; max-width: 1200px; }
+#inicio .hero-fade { width: 65%; padding: 196px 0 112px 55px !important; background: linear-gradient(90deg,#fffafa 0%,rgba(255,250,250,.97) 62%,rgba(255,250,250,.65) 83%,transparent 100%); }
+#inicio .hero-fade > div { max-width: 620px !important; }
+#inicio .hero-fade > div > p:first-child { font-size: 14px !important; letter-spacing: 4px !important; margin-bottom: 22px; gap: 14px; }
+#inicio h1 { font-size: 44px !important; line-height: 1.2 !important; letter-spacing: 0 !important; margin-bottom: 22px; }
+#inicio h1 span { font-size: 53px !important; line-height: 1.5; white-space: nowrap; letter-spacing: 0; text-shadow: 0 2px 0 #ffffff80; }
+.script-gradient { background-image: linear-gradient(90deg,#ff4387 0%,#ff953e 27%,#32c5d0 48%,#c97fd8 70%,#fa4083 100%) !important; }
+#inicio h1 span svg { width: 43px; height: 43px; flex-shrink: 0; transform: rotate(14deg); }
+#inicio .hero-fade > div > p:nth-of-type(2) { font-size: 20px !important; line-height: 1.55 !important; margin-bottom: 26px; }
+#inicio .hero-fade > div > div:first-of-type { gap: 18px; margin-bottom: 46px; }
+#inicio .hero-fade > div > div:first-of-type a { padding: 20px 25px !important; font-size: 18px !important; white-space: nowrap; min-height: 73px; border-width: 1px !important; box-shadow: none; }
+#inicio .wa-link { background: linear-gradient(110deg,#ff3c80,#f45389); }
+#inicio .hero-fade > div > div:last-child { max-width: 550px; gap: 22px; }
+#inicio .hero-fade > div > div:last-child b { font-size: 15px !important; font-weight: 500; line-height: 1.2; }
+#inicio .hero-fade > div > div:last-child svg { width: 36px; height: 36px; }
+#inicio > svg { height: 105px !important; }
+#trabalhos { padding: 0 55px 48px !important; margin-top: -2px; }
+#trabalhos > div { max-width: 1200px; }
+#trabalhos h2 { font-size: 39px !important; letter-spacing: 0; line-height: 1.3; }
+#trabalhos h2 span { font-size: 27px; }
+#trabalhos > div > div:first-child { margin-bottom: 29px; }
+#trabalhos p { font-size: 18px !important; }
+#trabalhos .insta-link { font-size: 14px; padding: 14px 22px; top: 16px; box-shadow: none; background: linear-gradient(110deg,#ff3d80,#f45188); }
+#workTrack { display: flex !important; gap: 16px !important; padding-bottom: 4px; }
+#workTrack article { flex: 0 0 calc((100% - 48px) / 4); min-width: 0 !important; }
+#workTrack img { height: auto !important; aspect-ratio: .81; border-radius: 18px !important; box-shadow: none; }
+#workTrack h3 { justify-content: center; font-weight: 500; font-size: 15px; margin-top: 12px; white-space: nowrap; gap: 9px; }
+#workTrack h3 span { background: transparent !important; color: #ff4584; width: 28px; height: 28px; }
+#workTrack h3 svg { width: 24px; height: 24px; }
+#workTrack article:last-child h3 span { color: #ffa33d; }
+#prevWork, #nextWork { display: grid !important; top: 45%; width: 54px; height: 54px; box-shadow: 0 5px 18px #233e4b1a; }
+#prevWork { left: -28px; } #nextWork { right: -28px; }
+#contato { padding: 85px 55px 74px !important; min-height: 307px; background: linear-gradient(110deg,#fff1f3,#fff7f8 44%,#ffe7ee) !important; }
+#contato > svg { height: 65px !important; }
+#contato > div:last-child { grid-template-columns: 1.05fr 1fr !important; gap: 30px; max-width: 1200px; }
+#contato h2 { font-size: 40px !important; line-height: 1.22 !important; margin-bottom: 14px; transform: rotate(-3deg); }
+#contato h2 span { white-space: nowrap; }
+#contato p { font-size: 18px !important; line-height: 1.45 !important; padding-left: 40px; }
+#contato > div:last-child > div:last-child { gap: 12px; }
+#contato > div:last-child > div:last-child > a { min-height: 162px !important; border-radius: 28px !important; padding: 15px 10px !important; box-shadow: none; gap: 12px; background: #ffffffcf; }
+#contato a > span { width: 68px; height: 68px; border-radius: 22px; box-shadow: inset 0 0 0 1px #ffffff70; }
+#contato a > span svg { width: 42px; height: 42px; }
+#contato a b { font-size: 15px; font-weight: 500; line-height: 1.25; }
+#contato::after { content: ''; position: absolute; left: -5%; right: -5%; bottom: -58px; height: 90px; background: #ffcadf; border-radius: 50% 55% 0 0; transform: rotate(-2deg); pointer-events: none; }
+footer { font-size: 12px !important; padding: 18px !important; }
+a:focus-visible, button:focus-visible { outline: 3px solid #159eb3; outline-offset: 4px; }
+@media (min-width: 1024px) and (max-width: 1190px) {
+  #mainNav { gap: 21px !important; font-size: 12px !important; }
+  header > div:first-child { padding: 0 38px 0 20px !important; gap: 18px !important; }
+  header > div:first-child > a:first-child { width: 260px !important; }
+  header .wa-link { padding: 15px 22px !important; }
+}
+@media (min-width: 1200px) {
+  #inicio .hero-fade { padding-left: 55px !important; }
+  #inicio h1 { font-size: 52px !important; }
+  #inicio h1 span { font-size: 59px !important; }
+}
+@media (max-width: 1023px) {
+  header > div:first-child { height: 90px !important; padding: 0 22px !important; }
+  header > div:first-child > a:first-child { width: 200px !important; height: 122px; }
+  header > div:first-child > a:first-child img { width: 178px !important; }
+  #mobileNav { position: absolute; top: 94px; left: 0; right: 0; }
+  #inicio .hero-fade { padding: 165px 30px 120px !important; width: 85%; }
+  #inicio h1 span { font-size: 46px !important; }
+  #trabalhos { padding: 0 30px 40px !important; }
+  #trabalhos .insta-link { margin-top: 15px; }
+  #contato { padding: 80px 30px 65px !important; }
+  #contato > div:last-child { grid-template-columns: 1fr !important; gap: 35px; text-align: center; }
+  #contato p { padding-left: 0; }
+  body { padding-bottom: 82px; }
+}
+@media (max-width: 600px) {
+  html { scroll-padding-top: 20px; }
+  header > div:first-child { height: 76px !important; border-radius: 20px 20px 30px 30px !important; }
+  header > div:first-child > a:first-child { width: 170px !important; height: 105px; }
+  header > div:first-child > a:first-child img { width: 153px !important; }
+  #inicio, #inicio > div:nth-child(2) { min-height: 770px !important; }
+  #inicio > div:first-child { width: 100% !important; opacity: .42; }
+  #inicio .hero-fade { width: 100%; padding: 153px 22px 100px !important; background: linear-gradient(90deg,#fffafa 0%,#fffafaea 52%,#fffafa70); }
+  #inicio .hero-fade > div > p:first-child { font-size: 10px !important; letter-spacing: 2px !important; gap: 9px; }
+  #inicio h1 { font-size: 34px !important; line-height: 1.2 !important; }
+  #inicio h1 span { display: block; font-size: 36px !important; white-space: normal; line-height: 1.5; }
+  #inicio h1 span svg { display: inline; width: 26px; height: 26px; margin-left: 5px; }
+  #inicio .hero-fade > div > p:nth-of-type(2) { font-size: 16px !important; }
+  #inicio .hero-fade > div > div:first-of-type { gap: 11px; margin-bottom: 28px; }
+  #inicio .hero-fade > div > div:first-of-type a { min-height: 57px; padding: 14px 18px !important; font-size: 16px !important; }
+  #inicio .hero-fade > div > div:last-child { gap: 10px; }
+  #inicio .hero-fade > div > div:last-child > div { flex-direction: column; text-align: center; gap: 6px; }
+  #inicio .hero-fade > div > div:last-child b { font-size: 12px !important; }
+  #trabalhos { padding: 0 24px 35px !important; }
+  #trabalhos h2 { font-size: 28px !important; gap: 8px; }
+  #trabalhos p { font-size: 15px !important; }
+  #workTrack article { flex-basis: 82%; }
+  #workTrack h3 { font-size: 15px; }
+  #prevWork, #nextWork { width: 40px; height: 40px; }
+  #prevWork { left: -18px; } #nextWork { right: -18px; }
+  #contato { padding: 75px 22px 60px !important; }
+  #contato h2 { font-size: 31px !important; }
+  #contato h2 span { white-space: normal; }
+  #contato p { font-size: 16px !important; }
+  #contato > div:last-child > div:last-child { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; }
+  #contato > div:last-child > div:last-child > a { min-height: 138px !important; border-radius: 22px !important; padding: 12px 5px !important; }
+  #contato a > span { width: 52px; height: 52px; border-radius: 17px; }
+  #contato a > span svg { width: 32px; height: 32px; }
+  #contato a b { font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html, .scroll-smooth { scroll-behavior: auto !important; }
+  * { transition: none !important; }
+}
