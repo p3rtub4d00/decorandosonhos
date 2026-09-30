@@ -65,3 +65,49 @@ document.addEventListener("keydown", event => {
     menu.setAttribute("aria-expanded", "false");
   }
 });
+
+
+// Formulário de orçamento: monta a solicitação e abre o WhatsApp.
+const quoteForm = document.getElementById("quote-form");
+if (quoteForm) {
+  const dateInput = document.getElementById("q-date");
+  if (dateInput) {
+    const today = new Date();
+    today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
+    dateInput.min = today.toISOString().split("T")[0];
+  }
+
+  quoteForm.addEventListener("submit", event => {
+    event.preventDefault();
+    const status = document.getElementById("quote-status");
+    const data = new FormData(quoteForm);
+    const name = String(data.get("name") || "").trim();
+    const date = String(data.get("date") || "").trim();
+    const type = String(data.get("type") || "").trim();
+    const theme = String(data.get("theme") || "").trim();
+    const details = String(data.get("details") || "").trim();
+
+    if (!name || !date || !type) {
+      status.textContent = "Preencha nome, data e tipo de comemoração.";
+      status.className = "form-help error";
+      return;
+    }
+
+    const [year, month, day] = date.split("-");
+    const formattedDate = day && month && year ? `${day}/${month}/${year}` : date;
+    const lines = [
+      "Olá! Vi o site da Decorando Sonhos e gostaria de solicitar um orçamento.",
+      "",
+      `Nome: ${name}`,
+      `Data da festa: ${formattedDate}`,
+      `Tipo de comemoração: ${type}`,
+      theme ? `Tema/ideia: ${theme}` : "",
+      details ? `Detalhes: ${details}` : ""
+    ].filter(Boolean);
+
+    const url = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(lines.join("\n"))}`;
+    status.textContent = "Abrindo o WhatsApp com sua solicitação...";
+    status.className = "form-help success";
+    window.open(url, "_blank", "noopener");
+  });
+}
