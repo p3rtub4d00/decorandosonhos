@@ -50,3 +50,18 @@ const observer = new IntersectionObserver(entries => {
 revealTargets.forEach(el => observer.observe(el));
 
 document.getElementById("year").textContent = new Date().getFullYear();
+
+
+// Fecha o menu ao clicar fora dele ou pressionar Esc.
+document.addEventListener("click", event => {
+  if (nav.classList.contains("open") && !nav.contains(event.target) && !menu.contains(event.target)) {
+    nav.classList.remove("open");
+    menu.setAttribute("aria-expanded", "false");
+  }
+});
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") {
+    nav.classList.remove("open");
+    menu.setAttribute("aria-expanded", "false");
+  }
+});
